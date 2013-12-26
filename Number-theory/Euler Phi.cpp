@@ -36,3 +36,39 @@ for (int i = 2; i <= MAXN; i++ ){
 		else phi[i*prime[j]] = phi[i]*(prime[j]-1 );
 	}
 }
+
+
+// code curtesy Ivan Karasilnikov
+// almost half from 1st one
+static int isqrt(int a)
+{
+        register int x, y;
+
+        for (x = a; x > 1; x = y)
+                if ((y = ((x + (a / x)) >> 1)) >= x) return x;
+
+        return x;
+}
+
+static int phi(int n)
+{
+        register int r, d, p, m;
+
+        for (p = 0; (n & 1) == 0; n >>= 1, p++);
+        r = (p == 0) ? 1 : (1 << (p - 1));
+
+        m = isqrt(n) + 1;
+        for (d = 3; d <= m; d += 2) {
+                if ((n % d) == 0) {
+                        for (n /= d, p = 1; (n % d) == 0; n /= d, p++)
+                                r *= d;
+                        r *= d - 1;
+                        m = isqrt(n) + 1;
+                }
+        }
+
+        if (n > 1)
+                r *= (n - 1);
+
+        return r;
+}
