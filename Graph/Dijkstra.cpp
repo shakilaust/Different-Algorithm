@@ -53,8 +53,8 @@ void Dijkstra(int s , int d )
          int sz = adj[u].size();
          rep(i,sz)
          {
-             int v = adj[u][i].first ;
-             int tmp = adj[u][i].second ;
+             int v = adj[u][i].first ; // node to go
+             int tmp = adj[u][i].second ; // cost between them
              if ( dis[v] > dis[u] + tmp )
              {
                  dis[v] = dis[u] + tmp ;
