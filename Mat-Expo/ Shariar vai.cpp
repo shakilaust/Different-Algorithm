@@ -1,4 +1,4 @@
-// this code is collected from shariar vai SUST ACM Finalist 2014
+// this code has been collected from shariar vai SUST ACM Finalist 2014
 #include<iostream>
 #include<sstream>
 #include<string>
